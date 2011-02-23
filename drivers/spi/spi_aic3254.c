@@ -361,6 +361,9 @@ static int aic3254_set_config(int config_tbl, int idx, int en)
 			aic3254_config_ex(CODEC_SET_VOLUME_R,
 				ARRAY_SIZE(CODEC_SET_VOLUME_R));
 
+			if(ctl_ops->rx_amp_enable)
+				ctl_ops->rx_amp_enable(1);
+
 		} else {
 			aic3254_rx_config(DOWNLINK_OFF);
 			aic3254_rx_mode = DOWNLINK_OFF;
